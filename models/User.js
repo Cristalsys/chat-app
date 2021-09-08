@@ -1,4 +1,4 @@
-const {Schema, model, Types} = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const schema = new Schema({
 
@@ -6,9 +6,7 @@ const schema = new Schema({
     lastName: {type: String, required: true},
     email: {type: String, unique: true, required: true},
     password: {type: String, minlength: 4, required: true},
-    avatar: {type: String, default: ''},
-    isOnline: {type: Boolean, default: false}
-
+    avatar: {type: String, default: ''}
 })
 
 module.exports = model('User', schema)

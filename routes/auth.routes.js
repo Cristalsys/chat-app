@@ -1,11 +1,12 @@
 const {Router} = require('express')
 const router = Router()
-const {check, validationResult} = require('express-validator')
+const {check} = require('express-validator')
 
 const
     {
         signup,
-        signin
+        signin,
+        googleLogin
     } = require('../controllers/auth')
 
 
@@ -25,5 +26,7 @@ router.post('/signin',
         check('password', 'enter correct password').exists(),
     ],
     signin)
+
+router.post('/googleLogin', googleLogin)
 
 module.exports = router

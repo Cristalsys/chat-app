@@ -99,12 +99,13 @@ io.use(async (socket, next) => {
         }))
     })
 
-    socket.on('sendMessage', ({senderId, receiverId, text}) => {
+    socket.on('sendMessage', ({senderId, receiverId, text, conversation}) => {
         const user = getUser(receiverId);
         if (user) {
             io.to(user.socketId).emit("getMessage", {
                 senderId,
                 text,
+                conversation
             });
         }
     })
@@ -115,11 +116,10 @@ io.use(async (socket, next) => {
         io.emit("getUsers", users)
     })
 
-    socket.on('disc', (userId) => {
+    socket.on('logout', (userId) => {
         removeUserId(userId)
         io.emit("getUsers", users)
     })
-
 })
 
 

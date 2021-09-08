@@ -1,9 +1,8 @@
-const {Schema, model, Types} = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const schema = new Schema(
     {
-        members: [{type: Schema.Types.ObjectId, ref: 'User'}],
-        lastMessage: {type: String, default: 'no available messages'}
+        members: [{type: Schema.Types.ObjectId, ref: 'User'}]
     },
 
     {timestamps: true}

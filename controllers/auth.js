@@ -2,10 +2,13 @@ const config = require('config')
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const {check, validationResult} = require('express-validator')
+const {validationResult} = require('express-validator')
+require('dotenv').config();
 
 const {cloudinary} = require('../utils/cloudinary');
 
+const {OAuth2Client} = require('google-auth-library')
+const client = new OAuth2Client(process.env.GOOGLE_SIGNIN)
 
 const signup = async (req, res) => {
     try {
@@ -15,7 +18,7 @@ const signup = async (req, res) => {
         if (!errors.isEmpty()) {
             return res.status(400).json({
                 errors: errors.array(),
-                message: 'wrong data'
+                message: 'wrong data, please try again'
             })
         }
 
@@ -36,7 +39,6 @@ const signup = async (req, res) => {
         if (candidate) {
             return res.status(409).json({message: 'Email is already in use'})
         }
-
 
         const hashedPassword = await bcrypt.hash(newUser.password, 12)
 
@@ -72,7 +74,7 @@ const signin = async (req, res) => {
         if (!errors.isEmpty()) {
             return res.status(400).json({
                 errors: errors.array(),
-                message: 'wrong data'
+                message: 'wrong data, please try again'
             })
         }
 
@@ -106,8 +108,57 @@ const signin = async (req, res) => {
     }
 }
 
+const googleLogin = async (req, res) => {
+    try {
+        const {token} = req.body
+
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.GOOGLE_SIGNIN
+        });
+        const {given_name, family_name, jti, email, email_verified, picture} = ticket.getPayload();
+        // console.log('ticket.getPayload() ', ticket.getPayload())
+        if (email_verified) {
+            const user = await User.findOne({email})
+            if (!user) {
+                const user = new User({
+                    email: email,
+                    password: jti,
+                    firstName: given_name,
+                    lastName: family_name,
+                    avatar: picture
+                })
+                await user.save()
+
+                const token = jwt.sign(
+                    {userAuth: user},
+                    config.get('jwtSecret'),
+                    {expiresIn: '5h'}
+                )
+
+                res.json({token})
+            } else {
+                const token = jwt.sign(
+                    {userAuth: user},
+                    config.get('jwtSecret'),
+                    {expiresIn: '5h'}
+                )
+                res.status(200).json({token, userId: user.id})
+            }
+        }
+
+    } catch (e) {
+        console.log(e)
+        return res
+            .status(403)
+            .json({message: 'Wrong credentials, please try again'});
+    }
+}
+
+
 module.exports =
     {
         signup,
         signin,
+        googleLogin
     }
