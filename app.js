@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const http = require('http')
 const socketio = require('socket.io')
 const jwt = require('jsonwebtoken')
+const path = require('path')
 
 const app = express()
 const server = http.createServer(app)
@@ -14,6 +15,16 @@ const io = socketio(server, {
         origin: 'http://localhost:3000'
     }
 })
+
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, '../client', 'build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'))
+    })
+
+}
 
 const PORT = config.get('port') || 5000
 
