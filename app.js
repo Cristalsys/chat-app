@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
-const PORT = config.get('port') || 5000
+const PORT = process.env.PORT || 5000
 
 // middleware
 app.use('/uploads', express.static('uploads'))
