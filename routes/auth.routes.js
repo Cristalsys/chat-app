@@ -6,7 +6,10 @@ const
     {
         signup,
         signin,
-        googleLogin
+        googleLogin,
+        forgotPassword,
+        resetPassword,
+        updatePasswordViaEmail
     } = require('../controllers/auth')
 
 
@@ -28,5 +31,15 @@ router.post('/signin',
     signin)
 
 router.post('/googleLogin', googleLogin)
+router.post('/forgotPassword', [
+    check('email', 'enter correct email').isEmail().normalizeEmail()
+], forgotPassword)
+
+router.get('/reset/:resetToken', resetPassword)
+
+router.post('/updatePasswordViaEmail', [
+    check('password', 'password min length 4 symbols').isLength({min: 4}),
+], updatePasswordViaEmail)
+
 
 module.exports = router
