@@ -1,0 +1,111 @@
+.container {
+    background: #fff;
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5)
+}
+
+.form {
+    padding: 25px 30px;
+}
+
+.formWrapper {
+    margin: 20px 0;
+}
+
+.title {
+    text-align: center;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.fieldPass {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.fieldPassItem {
+    position: absolute;
+    right: 10px;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input:focus {
+    border: 1px solid #000000;
+}
+
+.border {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
+}
+
+.submit {
+    margin-top: 20px;
+    height: 45px;
+    background-color: #017B90;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .3s;
+    /*transition: color 2s;*/
+
+}
+
+.submit:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.link {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.linkText > span > a {
+    font-weight: 600;
+    color: #000000;
+}
+
+.errors {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 14px;
+}
+
+.googleButton {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.linkForgot {
+    margin-top: 20px;
+    display: flex;
+}
+
+.linkTextForgot > span > a {
+    color: #017B90 ;
+}

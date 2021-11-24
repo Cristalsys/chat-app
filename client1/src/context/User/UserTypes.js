@@ -1,0 +1,24 @@
+export const SET_AUTHENTICATED = 'SET_AUTHENTICATED';
+export const SET_UNAUTHENTICATED = 'SET_UNAUTHENTICATED';
+export const SET_USER = 'SET_USER';
+export const SET_USERS = 'SET_USERS';
+export const SET_NEW_USER = 'SET_NEW_USER';
+export const LOADING = 'LOADING';
+export const UNLOADING = 'UNLOADING';
+export const LOADING_USER = 'LOADING_USER';
+export const LOADING_USERS = 'LOADING_USERS';
+export const LOADING_NEW_USER = 'LOADING_NEW_USER';
+export const SET_ERRORS = 'SET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const SET_NEW_USER_EMPTY = 'SET_NEW_USER_EMPTY'
+
+export const SET_ERRORS_RESET = 'SET_ERRORS_RESET';
+export const CLEAR_ERRORS_RESET = 'CLEAR_ERRORS_RESET';
+
+export const LOADING_RESET = 'LOADING_RESET';
+export const UNLOADING_RESET = 'UNLOADING_RESET';
+
+export const RESET_EMAIL = 'RESET_EMAIL';
+export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
+
+

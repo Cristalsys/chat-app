@@ -1,0 +1,16 @@
+// conversation
+export const ADD_CONVERSATION = 'ADD_CONVERSATION';
+export const SET_CONVERSATIONS = 'SET_CONVERSATIONS';
+export const SET_CONVERSATION = 'SET_CONVERSATION';
+
+// messages
+export const SET_MESSAGES = 'SET_MESSAGES';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+
+//loading
+export const CONVERSATIONS_LOADING = 'CONVERSATIONS_LOADING';
+export const CONVERSATION_LOADING = 'CONVERSATION_LOADING';
+export const MESSAGES_LOADING = 'MESSAGES_LOADING';
+
+// set empty
+export const SET_EMPTY_CONV_MESS = 'SET_EMPTY_CONV_MESS';

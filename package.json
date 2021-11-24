@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "server": "nodemon app.js",
-    "client": "npm run start --prefix ../client",
-    "build": "cd ../client && npm run build",
-    "install-client": "cd ../client && npm install",
+    "client": "npm run start --prefix client1",
+    "build": "cd client1 && npm run build",
+    "install-client": "cd client1 && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "dev": "concurrently \"npm run server \" \" npm run client \"",
     "start": "concurrently \"npm run server \" \" npm run client \""

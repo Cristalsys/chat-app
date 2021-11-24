@@ -1,0 +1,136 @@
+.wrapper {
+    padding: 25px 30px;
+    background: #fff;
+    width: 450px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5)
+}
+
+.header, .usersList a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.contentImg {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+}
+
+.logout {
+    background-color: #017B90;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3ms;
+}
+
+.logout:hover {
+    background-color: #000000;
+}
+
+.logout > a {
+    color: #ffffff;
+}
+
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 20px 0;
+}
+
+.search input {
+    position: absolute;
+    /*width: calc(100% - 50px);*/
+    width: 100%;
+    /*margin-left: 50px;*/
+    height: 40px;
+    padding: 0 13px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+}
+
+.faSearch {
+    z-index: 1;
+    margin-left: 360px;
+}
+
+.usersList {
+    max-height: 270px;
+    overflow-y: auto;
+    margin-top: 30px;
+}
+
+
+.usersList::-webkit-scrollbar {
+    width: 0;
+}
+
+.userListLink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.borderLine {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.userListContent {
+    display: flex;
+    align-items: center;
+}
+
+.userListContentImg {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.userListDetails {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+}
+
+.userListDetailsFirstChild {
+    font-weight: 600;
+}
+
+.userListDetailsLastChild {
+    font-size: 14px;
+}
+
+.faOnline {
+    color: #017B90;
+    padding-right: 15px;
+}
+
+.faOffline {
+    color: #ccc;
+    padding-right: 15px;
+}
