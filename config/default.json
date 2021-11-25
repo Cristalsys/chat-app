@@ -1,0 +1,8 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb+srv://cristals:12345@cluster0.k3oyu.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000",
+  "clientURL": "http://localhost:3000",
+  "jwtSecret": "chatApp",
+  "upload_preset": "qkj2grzq"
+}
