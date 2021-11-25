@@ -4,5 +4,6 @@
   "baseUrl": "http://localhost:5000",
   "clientURL": "http://localhost:3000",
   "jwtSecret": "chatApp",
-  "upload_preset": "qkj2grzq"
+  "upload_preset": "qkj2grzq",
+  "NODE_ENV": ""
 }
