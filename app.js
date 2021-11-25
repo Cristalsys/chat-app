@@ -45,7 +45,7 @@ app.use('/api/message', require('./routes/message.routes'))
 async function start() {
 
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
+        await mongoose.connect(process.env.MONGODB_URI || config.get('mongoUri'), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,
