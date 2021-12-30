@@ -16,9 +16,7 @@ const io = socketio(server, {
     }
 })
 
-
-
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV_PRODUCTION) {
     app.use('/', express.static(path.join(__dirname, './client', 'build')))
 
     app.get('*', (req, res) => {
