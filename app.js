@@ -15,18 +15,6 @@ const io = socketio(server, {
     }
 })
 
-if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static(path.join(__dirname, './client', 'build')))
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, './client', 'build', 'index.html'))
-    })
-
-}
-
-
-const PORT = process.env.PORT || 5000
-
 // middleware
 app.use('/uploads', express.static('uploads'))
 app.use(cors())
@@ -39,6 +27,17 @@ app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/user', require('./routes/user.routes'))
 app.use('/api/conversation', require('./routes/conversation.routes'))
 app.use('/api/message', require('./routes/message.routes'))
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, './client', 'build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './client', 'build', 'index.html'))
+    })
+
+}
+
+const PORT = process.env.PORT || 5000
 
 async function start() {
 
