@@ -49,7 +49,7 @@ const Users = ({users, history, onlineUsers}) => {
             {users && users.length > 0 ? (
                 <div className={styles.usersList}>
                     {users &&
-                        users.length > 0 &&
+                        users.length > 0 && users[0] !== 'undefined' &&
                         users.filter(user => user._id !== auth._id)
                             .map((user, index) => (
                         <Fragment key={user._id}>
