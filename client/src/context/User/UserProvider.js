@@ -21,7 +21,7 @@ const UserProvider = (props) => {
 
     const login = (userData, history, setupSocket) => {
         dispatch({type: LOADING})
-        axios.post('/auth/signin', userData)
+        axios.post('/api/auth/signin', userData)
             .then((res) => {
                 setAuthorizationHeader(res.data.token)
                 getUserData()
@@ -42,7 +42,7 @@ const UserProvider = (props) => {
 
     const loginGoogle = (response, history, setupSocket) => {
         dispatch({type: LOADING})
-        axios.post('/auth/googleLogin', {token: response.tokenId})
+        axios.post('/api/auth/googleLogin', {token: response.tokenId})
             .then((res) => {
                 setAuthorizationHeader(res.data.token)
                 getUserData()
@@ -63,7 +63,7 @@ const UserProvider = (props) => {
 
     const register = (newUserData, history, setupSocket) => {
         dispatch({type: LOADING})
-        axios.post('/auth/signup', newUserData)
+        axios.post('/api/auth/signup', newUserData)
             .then((res) => {
                 setAuthorizationHeader(res.data.token)
                 getUserData()
@@ -92,7 +92,7 @@ const UserProvider = (props) => {
 
     const getUserData = () => {
         dispatch({type: LOADING_USER});
-        axios.get(`/user/me`)
+        axios.get(`/api/user/me`)
             .then(res => {
                 dispatch({
                     type: SET_USER,
@@ -105,7 +105,7 @@ const UserProvider = (props) => {
 
     const getAllUsers = () => {
         dispatch({type: LOADING_USERS})
-        axios.get('/user/')
+        axios.get('/api/user/')
             .then(res => {
                 dispatch({
                     type: SET_USERS,
@@ -122,7 +122,7 @@ const UserProvider = (props) => {
 
     const getNewUser = (userId) => {
         dispatch({type: LOADING_NEW_USER})
-        axios.get(`/user/${userId}`)
+        axios.get(`/api/user/${userId}`)
             .then((res) => {
                 dispatch({
                     type: SET_NEW_USER,
@@ -141,7 +141,7 @@ const UserProvider = (props) => {
 
     const forgotPassword = (userData, history) => {
         dispatch({type: LOADING})
-        axios.post('/auth/forgotPassword', userData)
+        axios.post('/api/auth/forgotPassword', userData)
             .then((res) => {
                 console.log('res ', res)
                 dispatch({type: CLEAR_ERRORS})
@@ -159,7 +159,7 @@ const UserProvider = (props) => {
 
     const resetPassword = (userData) => {
         dispatch({type: LOADING_RESET})
-        axios.get('/auth/reset/' + userData)
+        axios.get('/api/auth/reset/' + userData)
             .then((res) => {
                 dispatch({
                     type: RESET_EMAIL,
@@ -180,7 +180,7 @@ const UserProvider = (props) => {
     const updatePasswordViaEmail = (userData, history) => {
         dispatch({type: LOADING})
         console.log('userData', userData)
-        axios.post('/auth/updatePasswordViaEmail', userData)
+        axios.post('/api/auth/updatePasswordViaEmail', userData)
             .then((res) => {
                 dispatch({
                     type: UPDATE_PASSWORD,

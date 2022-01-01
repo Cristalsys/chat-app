@@ -12,11 +12,11 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server, {
     cors: {
-        origin: 'http://localhost:3000'
+        origin: 'https://ew-23-23-1.herokuapp.com'
     }
 })
 
-if (process.env.NODE_ENV_PRODUCTION) {
+if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.join(__dirname, './client', 'build')))
 
     app.get('*', (req, res) => {
@@ -24,7 +24,8 @@ if (process.env.NODE_ENV_PRODUCTION) {
     })
 
 }
-//2332
+
+
 const PORT = process.env.PORT || 5000
 
 // middleware

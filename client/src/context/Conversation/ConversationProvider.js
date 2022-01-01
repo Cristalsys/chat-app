@@ -20,7 +20,7 @@ const UserProvider = (props) => {
 
     const getConversations = (userId) => {
         dispatch({type: CONVERSATIONS_LOADING})
-        axios.get(`/conversation/${userId}`,)
+        axios.get(`/api/conversation/${userId}`,)
             .then((res) => {
                 dispatch({
                     type: SET_CONVERSATIONS,
@@ -33,7 +33,7 @@ const UserProvider = (props) => {
     }
 
     const addConversation = (conversationData, history) => {
-        axios.post(`/conversation/`, conversationData)
+        axios.post(`/api/conversation/`, conversationData)
             .then((res) => {
                 dispatch({
                     type: ADD_CONVERSATION,
@@ -47,7 +47,7 @@ const UserProvider = (props) => {
     }
     const getOneConversation = (conversationData) => {
         dispatch({type: CONVERSATION_LOADING})
-        axios.get(`/conversation/find/${conversationData.sender}/${conversationData.receiver}`)
+        axios.get(`/api/conversation/find/${conversationData.sender}/${conversationData.receiver}`)
             .then((res) => {
                 dispatch({
                     type: SET_CONVERSATION,
@@ -62,7 +62,7 @@ const UserProvider = (props) => {
 
     const getMessages = (conversationId) => {
         dispatch({type: MESSAGES_LOADING})
-        axios.get(`/message/${conversationId}`,)
+        axios.get(`/api/message/${conversationId}`,)
             .then((res) => {
                 dispatch({
                     type: SET_MESSAGES,
@@ -75,7 +75,7 @@ const UserProvider = (props) => {
     }
 
     const addMessage = (messageData) => {
-        axios.post(`/message/`, messageData)
+        axios.post(`/api/message/`, messageData)
             .then((res) => {
                 dispatch({
                     type: ADD_MESSAGE,
