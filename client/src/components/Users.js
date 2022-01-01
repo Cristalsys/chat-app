@@ -48,7 +48,7 @@ const Users = ({users, history, onlineUsers}) => {
         <>
             {users && users.length > 0 ? (
                 <div className={styles.usersList}>
-                    {users.filter(user => user._id !== auth._id).map((user, index) => (
+                    {users && users.length > 0 && users.filter(user => user._id !== auth._id).map((user, index) => (
                         <Fragment key={user._id}>
                             <div className={styles.userListLink} onClick={() =>
                                 onClickConversationHandler(user._id)}>

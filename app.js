@@ -7,7 +7,6 @@ const http = require('http')
 const socketio = require('socket.io')
 const jwt = require('jsonwebtoken')
 const path = require('path')
-
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server, {
