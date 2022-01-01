@@ -8,7 +8,7 @@ import axios from "axios";
 import {io} from 'socket.io-client'
 
 const token = localStorage.FBIdToken;
-const ENDPOINT = 'http://localhost:5000'
+const ENDPOINT = 'https://chat-applicat1on.herokuapp.com'
 
 function App() {
 

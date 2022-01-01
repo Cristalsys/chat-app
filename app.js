@@ -11,7 +11,7 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server, {
     cors: {
-        origin: 'https://ew-23-23-1.herokuapp.com'
+        origin: 'https://chat-applicat1on.herokuapp.com'
     }
 })
 
